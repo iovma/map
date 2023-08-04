@@ -11,6 +11,12 @@ dependencies:
   leaflet-editable:
     specifier: ^1.2.0
     version: 1.2.0
+  leaflet-path-drag:
+    specifier: 1.8.0-beta.3
+    version: 1.8.0-beta.3
+  leaflet-snap:
+    specifier: ^0.0.4
+    version: 0.0.4
   svelte-leafletjs:
     specifier: ^0.10.0
     version: 0.10.0
@@ -709,8 +715,37 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
+  /leaflet-draw@0.3.2:
+    resolution: {integrity: sha512-0O8kEVtOvir+y4ltJAbuR7Q4jM0iGz6+Zw/T1yCdUUeReyrMn89bo/9XbfwP964Qe1szvdDDnosMKaSC8wBn9g==}
+    requiresBuild: true
+    dev: false
+    optional: true
+
   /leaflet-editable@1.2.0:
     resolution: {integrity: sha512-wG11JwpL8zqIbypTop6xCRGagMuWw68ihYu4uqrqc5Ep0wnEJeyob7NB2Rt5t74Oih4rwJ3OfwaGbzdowOGfYQ==}
+    dev: false
+
+  /leaflet-geometryutil@0.10.2:
+    resolution: {integrity: sha512-NBKO0dW6+Ur0LKa6t5JMBd242lAMjRek23O8awlpvoDmTrb7fqgZC608YLwpZ4TYJZ/RbLu9fclIN8M4pIVwTQ==}
+    dependencies:
+      leaflet: 1.9.4
+    dev: false
+
+  /leaflet-path-drag@1.8.0-beta.3:
+    resolution: {integrity: sha512-kpZ6sPOKlR+m+VChIzZZ7XFH4C+VGTrAxgnM4UN5iYl7lJ00iDOxS+r717bDf/xFFHB6n2jpUp9vvzjjteMpeQ==}
+    dev: false
+
+  /leaflet-snap@0.0.4:
+    resolution: {integrity: sha512-p9JNYeDCwkpp7mas7KQUkdb16R0kPCJjnNr7v2h4Aeb3EPLt9ILAZxqAd60DdZo/1y+WEezzUC4UDRM0OgYRgA==}
+    dependencies:
+      leaflet: 0.7.7
+      leaflet-geometryutil: 0.10.2
+    optionalDependencies:
+      leaflet-draw: 0.3.2
+    dev: false
+
+  /leaflet@0.7.7:
+    resolution: {integrity: sha512-H1lR7J5VxhvQJQHlW2UywtxO63zilLrnwVsDvjKeyfntffj63Ml94gCk9YPYWBkiQgxisdiA8aJ30Zoou4VhEA==}
     dev: false
 
   /leaflet@1.9.4:
