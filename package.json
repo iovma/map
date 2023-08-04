@@ -1,0 +1,6 @@
+{
+	"devDependencies": {
+		"@types/svelte-leafletjs": "^0.8.3",
+		"svelte-leafletjs": "^0.10.0"
+	}
+}

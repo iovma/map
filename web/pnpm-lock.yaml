@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+dependencies:
+  svelte-leafletjs:
+    specifier: ^0.10.0
+    version: 0.10.0
+
 devDependencies:
   '@sveltejs/adapter-auto':
     specifier: ^2.0.0
@@ -676,6 +681,10 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
+  /leaflet@1.9.4:
+    resolution: {integrity: sha512-nxS1ynzJOmOlHp+iL3FyWqK89GtNL8U8rvlMOsQdTTssxZwCXh8N2NB3GDQOL+YR3XnWyZAxwQixURb+FA74PA==}
+    dev: false
+
   /locate-character@3.0.0:
     resolution: {integrity: sha512-SW13ws7BjaeJ6p7Q6CO2nchbYEc3X3J6WrmTTDto7yMPqVSZTUyY5Tjbid+Ab8gLnATtygYtiDIJGQRRn2ZOiA==}
     dev: true
@@ -941,6 +950,12 @@ packages:
     dependencies:
       svelte: 4.1.1
     dev: true
+
+  /svelte-leafletjs@0.10.0:
+    resolution: {integrity: sha512-xKIwHZAsdI2EoYvSEp4IDAeLFTaWx/e+gPs7G3Z6MLHNcFieDRKjVHgLt9ilM+xpw1A8Cx0qbtwrfdCYwWfG8g==}
+    dependencies:
+      leaflet: 1.9.4
+    dev: false
 
   /svelte-preprocess@5.0.4(svelte@4.1.1)(typescript@5.1.6):
     resolution: {integrity: sha512-ABia2QegosxOGsVlsSBJvoWeXy1wUKSfF7SWJdTjLAbx/Y3SrVevvvbFNQqrSJw89+lNSsM58SipmZJ5SRi5iw==}
