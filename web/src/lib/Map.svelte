@@ -13,14 +13,15 @@
     onMount(async () => {
         if (browser) {
             const L = await import("leaflet")
+            await import("leaflet-editable")
 
             map = L.map(mapElement, {
-                crs: L.CRS.EPSG4326
+                crs: L.CRS.EPSG4326,
+                editable: true
             })
-            L.imageOverlay(
-                    world,
-                    [[-90, 0], [90, 360]]
-                ).addTo(map)
+            L.imageOverlay(world, [[-90, -360], [90, 0]]).addTo(map)
+            L.imageOverlay(world, [[-90, 0], [90, 360]]).addTo(map)
+            L.imageOverlay(world, [[-90, 360], [90, 720]]).addTo(map)
             map.fitBounds([[-90, 0], [90, 360]])
 
             map.on("mousemove", ({latlng}) => {
@@ -40,6 +41,9 @@
     .map {
         border: 1px solid black;
         height: 800px;
+    }
+    :global(.leaflet-container) {
+        background: #5e95b4;
     }
 </style>
 
