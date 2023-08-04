@@ -15,11 +15,7 @@
     onMount(async () => {
         if (browser) {
             const L = await import("leaflet")
-            await import("leaflet-editable")
-            // @ts-ignore
-            await import("leaflet-path-drag")
-            // @ts-ignore
-            await import("leaflet-snap")
+            await import("@geoman-io/leaflet-geoman-free")
 
             map = L.map(mapElement, {
                 crs: L.CRS.EPSG4326,
@@ -30,6 +26,11 @@
             L.imageOverlay(world, [[-90, 360], [90, 720]]).addTo(map)
             map.fitBounds([[-90, 0], [90, 360]])
 
+            map.pm.addControls({  
+                position: 'topleft',  
+                drawCircle: false,  
+            })
+
             const polygon = L.geoJSON(
                 worldPolygon as any,
                 {
@@ -37,15 +38,16 @@
                         layer.on({
                             click(e) {
                                 // @ts-ignore
-                                layer.enableEdit()
+                                layer.pm.enable()
                             }
                         })
                     }
                  }
             ).addTo(map)
 
-            // @ts-ignore
-            //polygon.getLayers().forEach(l => l.enableEdit())
+            map.on("preclick", () => {
+                map.pm.disableGlobalEditMode()
+            })
 
             map.on("mousemove", ({latlng}) => {
                 lat = latlng.lat
@@ -61,6 +63,7 @@
 
 <style>
     @import "leaflet/dist/leaflet.css";
+    @import "@geoman-io/leaflet-geoman-free/dist/leaflet-geoman.css";
     .map {
         border: 1px solid black;
         height: 800px;

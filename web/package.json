@@ -22,6 +22,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@geoman-io/leaflet-geoman-free": "^2.14.2",
 		"leaflet": "^1.9.4",
 		"leaflet-editable": "^1.2.0",
 		"leaflet-path-drag": "1.8.0-beta.3",
