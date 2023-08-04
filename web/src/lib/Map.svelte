@@ -1,20 +1,36 @@
-<script>
-    const window = globalThis
+<script lang="ts">
+    import { onMount } from "svelte"
+    import { browser } from "$app/environment"
 
-    import { LeafletMap, ImageOverlay } from "svelte-leafletjs"
+    import world from "../assets/world_min.svg"
 
-    let leafletMap
+    let mapElement: HTMLElement
+    let map
+
+    let worldElement: SVGElement
+
+    onMount(async () => {
+        if (browser) {
+            const L = await import("leaflet")
+
+            map = L.map(mapElement, {
+                crs: L.CRS.Simple
+            })
+            L.imageOverlay(
+                    world,
+                    [[0, 0], [3840, 2160]]
+                ).addTo(map)
+            map.fitBounds([[0, 0], [3840, 2160]])
+        } else { console.log("HO") }
+    })
 </script>
 
-<LeafletMap
-    bind:this={leafletMap}
-    options={{
-        center: [0, 0],
-        zoom: 1,
-    }}
->
-    <ImageOverlay
-        imageUrl="temp/5282/world.png"
-        bounds={[[0,0],[3840,2160]]}
-    />
-</LeafletMap>
+<style>
+    @import "leaflet/dist/leaflet.css";
+    .map {
+        border: 1px solid black;
+        height: 800px;
+    }
+</style>
+
+<div class="map" bind:this={mapElement}/>
